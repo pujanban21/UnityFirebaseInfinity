@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1079450822108",
+    "firebase_url": "https://worldsinfinity-6f366.firebaseio.com",
+    "project_id": "worldsinfinity-6f366",
+    "storage_bucket": "worldsinfinity-6f366.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079450822108:android:d24982f8d24b5306",
+        "android_client_info": {
+          "package_name": "com.Snorlaxes.WorldsInfinity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079450822108-sif3as8bqjsek1go5gin6r46os7c2d40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UQAlF6uKXBUdJi0QQeIahtTYId9Yna8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
