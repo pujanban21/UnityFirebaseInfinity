@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts;
 using Firebase;
 using System.Collections.Generic;
+using Firebase.Database;
 
 public class Main : MonoBehaviour {
 
@@ -49,7 +50,8 @@ public class Main : MonoBehaviour {
         Debug.Log("here");
         mFirebaseHelper = new FirebaseHelper();
         mFirebaseHelper.DatabaseRef();
-        AddLocation();
+       // AddLocation();
+        GetListOfLocation();
 
     }
 
@@ -63,20 +65,40 @@ public class Main : MonoBehaviour {
     }
 
 
-    // A realtime database transaction receives MutableData which can be modified
-    // and returns a TransactionResult which is either TransactionResult.Success(data) with
-    // modified data or TransactionResult.Abort() which stops the transaction with no changes.
 
-
+    //Adding visited Location
     public void AddLocation()
     {
-        string name = "dallas";
+        string name = "Newyork";
         mVisitedLocation = new VisitedPlaces_Info("dgdfg", "sdfsda");
         string key = mFirebaseHelper.CurrentUserRef().Push().Key;
         Dictionary<string, object> childUpdates = new Dictionary<string, object>();
         childUpdates[name] = mVisitedLocation.SaveLocation();
         mFirebaseHelper.VisitedLocationRef().UpdateChildrenAsync(childUpdates);
        
+    }
+
+    //Getting coordinates of all visited Places
+    public void GetListOfLocation() {
+      
+        mFirebaseHelper.VisitedLocationRef().ValueChanged += (object sender, ValueChangedEventArgs args) =>
+        {
+            if (args.DatabaseError != null) {
+                Debug.LogError(args.DatabaseError);
+            }
+
+            if (args.Snapshot != null && args.Snapshot.ChildrenCount > 0) {
+                Debug.Log(args.Snapshot.ChildrenCount);
+                foreach (var childSnapshot in args.Snapshot.Children){
+                  
+                   latitude = childSnapshot.Child("latitude").Value.ToString();
+                   longtitude = childSnapshot.Child("longitude").Value.ToString();
+
+                    Debug.Log(latitude + "   "  + longtitude);
+                }
+                
+            }
+        };
     }
 
     public void GetLatitude(string latitude)

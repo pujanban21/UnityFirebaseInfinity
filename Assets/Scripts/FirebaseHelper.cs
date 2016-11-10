@@ -39,7 +39,7 @@ namespace Assets.Scripts
             return rootReference;
 
         }
-
+       
         public DatabaseReference CurrentUserRef()
         {
             Debug.Log(RootRef().Child("Users")); //For Debugging
@@ -53,5 +53,26 @@ namespace Assets.Scripts
 
             return CurrentUserRef().Child("VisitedLocation");
         }
+
+        public DatabaseReference NewLocation()
+        {
+            return VisitedLocationRef().Child("LocationName");
+        }
+
+        public DatabaseReference CommentRef()
+        {
+            return NewLocation().Child("Comments");
+        }
+
+        public DatabaseReference TimeStamp()
+        {
+            return CommentRef().Child("Date");
+        }
+
+        public DatabaseReference VoteComment()
+        {
+            return CommentRef().Child("Likes");
+        }
+
     }
 }
