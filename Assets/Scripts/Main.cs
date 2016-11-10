@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts;
 using Firebase;
+using System.Collections.Generic;
 
 public class Main : MonoBehaviour {
 
@@ -38,8 +39,7 @@ public class Main : MonoBehaviour {
         }
         else
         {
-            mVisitedLocation = new VisitedPlaces_Info();
-            InitializeFirebase();
+          InitializeFirebase();
         }
     }
 
@@ -70,8 +70,13 @@ public class Main : MonoBehaviour {
 
     public void AddLocation()
     {
-        mVisitedLocation = new VisitedPlaces_Info("aaa", "123");
-        mFirebaseHelper.VisitedLocationRef().UpdateChildrenAsync(mVisitedLocation.SaveLocation());
+        string name = "dallas";
+        mVisitedLocation = new VisitedPlaces_Info("dgdfg", "sdfsda");
+        string key = mFirebaseHelper.CurrentUserRef().Push().Key;
+        Dictionary<string, object> childUpdates = new Dictionary<string, object>();
+        childUpdates[name] = mVisitedLocation.SaveLocation();
+        mFirebaseHelper.VisitedLocationRef().UpdateChildrenAsync(childUpdates);
+       
     }
 
     public void GetLatitude(string latitude)
