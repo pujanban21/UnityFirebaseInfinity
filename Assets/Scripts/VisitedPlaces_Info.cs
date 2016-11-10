@@ -23,11 +23,21 @@ namespace Assets.Scripts
 
         public string Latitude
         {
-            get; set;
+            get {
+                return latitude;
+            }
+            set {
+                latitude = value;
+            }
         }
         public string Longitude
         {
-            get; set;
+            get {
+                return Longitude;
+            }
+            set {
+                longitude = value;
+            }
         }
 
         public Dictionary<string, Object> SaveLocation()

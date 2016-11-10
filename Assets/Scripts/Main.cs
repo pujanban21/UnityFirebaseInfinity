@@ -69,6 +69,10 @@ public class Main : MonoBehaviour {
     //Adding visited Location
     public void AddLocation()
     {
+        /**
+         * remarks
+            Will get the name and cordinates later from the user through the maps
+         */
         string name = "Newyork";
         mVisitedLocation = new VisitedPlaces_Info("dgdfg", "sdfsda");
         string key = mFirebaseHelper.CurrentUserRef().Push().Key;
@@ -91,10 +95,11 @@ public class Main : MonoBehaviour {
                 Debug.Log(args.Snapshot.ChildrenCount);
                 foreach (var childSnapshot in args.Snapshot.Children){
                   
+                   /* Need to get a better data structure to store all the location*/
                    latitude = childSnapshot.Child("latitude").Value.ToString();
                    longtitude = childSnapshot.Child("longitude").Value.ToString();
 
-                    Debug.Log(latitude + "   "  + longtitude);
+                   Debug.Log(latitude + "   "  + longtitude);
                 }
                 
             }
