@@ -4,14 +4,20 @@ using Assets.Scripts;
 using Firebase;
 using System.Collections.Generic;
 using Firebase.Database;
+using System;
 
 public class Main : MonoBehaviour {
-
+    private const string TAG = "Main"; 
     private FirebaseHelper mFirebaseHelper;
     private VisitedPlaces_Info mVisitedLocation;
+    private CommentHelper mCommentHelper;
+
+    //For DummyLocation
+    private string mLocationInfo;
 
     private string latitude = "";
     private string longtitude = "";
+    private DateTime mTimeStamp;
 
     DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
 
@@ -47,11 +53,16 @@ public class Main : MonoBehaviour {
     // Initialize the Firebase database:
     void InitializeFirebase()
     {
+        mLocationInfo = "Dallas";
         Debug.Log("here");
         mFirebaseHelper = new FirebaseHelper();
+        mFirebaseHelper.LocationName = mLocationInfo;
         mFirebaseHelper.DatabaseRef();
-       // AddLocation();
-        GetListOfLocation();
+
+
+        AddLocation();
+        AddComment();
+       // GetListOfLocation();
 
     }
 
@@ -73,13 +84,28 @@ public class Main : MonoBehaviour {
          * remarks
             Will get the name and cordinates later from the user through the maps
          */
-        string name = "Newyork";
+        
         mVisitedLocation = new VisitedPlaces_Info("dgdfg", "sdfsda");
         string key = mFirebaseHelper.CurrentUserRef().Push().Key;
+        /*
         Dictionary<string, object> childUpdates = new Dictionary<string, object>();
         childUpdates[name] = mVisitedLocation.SaveLocation();
-        mFirebaseHelper.VisitedLocationRef().UpdateChildrenAsync(childUpdates);
+        */
+        mFirebaseHelper.NewLocation().UpdateChildrenAsync(mVisitedLocation.SaveLocation());
        
+    }
+
+    //Adding new commments
+    public void AddComment() {
+        mCommentHelper = new CommentHelper("this is nice place", TimeStamp() , 5);
+        string key = mFirebaseHelper.CurrentUserRef().Push().Key;
+        Dictionary<string, object> childUpdates = new Dictionary<string, object>();
+        childUpdates[key] = mCommentHelper.CommentRS();
+        mFirebaseHelper.CommentOnLocationRef().UpdateChildrenAsync(childUpdates);
+    }
+
+    //viewing comments about place
+    public void ViewComment() {
     }
 
     //Getting coordinates of all visited Places
@@ -119,6 +145,11 @@ public class Main : MonoBehaviour {
 
     public void OnClick()
     {
+    }
+
+    private DateTime TimeStamp() {
+        mTimeStamp = DateTime.Now;
+        return mTimeStamp;
     }
 }
 

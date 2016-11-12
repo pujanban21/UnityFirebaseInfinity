@@ -7,8 +7,10 @@ namespace Assets.Scripts
 {
     class VisitedPlaces_Info
     {
-        public string latitude;
-        public string longitude;
+        private const string TAG = "VisitedPlaces_Info";
+
+        private string latitude;
+        private string longitude;
 
         public VisitedPlaces_Info()
         {

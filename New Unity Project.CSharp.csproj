@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CommentHelper.cs" />
     <Compile Include="Assets\Scripts\FirebaseHelper.cs" />
     <Compile Include="Assets\Scripts\LocationHelper.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
