@@ -40,7 +40,7 @@ public class Main : MonoBehaviour {
                     // This should never happen if we're only using Firebase Analytics.
                     // It does not rely on any external dependencies.
                     Debug.LogError(
-                        "Could not resolve all Firebase dependencies: " + dependencyStatus);
+                       "Could not resolve all Firebase dependencies: " + dependencyStatus);
                 }
             });
         }
@@ -53,15 +53,15 @@ public class Main : MonoBehaviour {
     // Initialize the Firebase database:
     void InitializeFirebase()
     {
-        mLocationInfo = "Dallas";
+        mLocationInfo = "Texas Tech University";
         Debug.Log("here");
         mFirebaseHelper = new FirebaseHelper();
         mFirebaseHelper.LocationName = mLocationInfo;
         mFirebaseHelper.DatabaseRef();
 
-
-        AddLocation();
-        AddComment();
+        GetListOfLocation();
+       // AddLocation();
+       // AddComment();
        // GetListOfLocation();
 
     }
@@ -86,11 +86,6 @@ public class Main : MonoBehaviour {
          */
         
         mVisitedLocation = new VisitedPlaces_Info("dgdfg", "sdfsda");
-        string key = mFirebaseHelper.CurrentUserRef().Push().Key;
-        /*
-        Dictionary<string, object> childUpdates = new Dictionary<string, object>();
-        childUpdates[name] = mVisitedLocation.SaveLocation();
-        */
         mFirebaseHelper.NewLocation().UpdateChildrenAsync(mVisitedLocation.SaveLocation());
        
     }
