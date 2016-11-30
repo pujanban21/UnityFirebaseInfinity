@@ -25,7 +25,7 @@ namespace Assets.Scripts
 
             Dictionary<string, object> commentStruct = new Dictionary<string, object>();
             commentStruct["comment"] = mComment;
-            commentStruct["TimeStamp"] = mTimeStamp.ToString();
+            commentStruct["TimeStamp"] = mTimeStamp.ToString("dd/MM/yyyy");
             commentStruct["Likes"] = Likes.ToString();
 
             return commentStruct;

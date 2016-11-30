@@ -15,9 +15,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 0
+  - 304141293318191
   appLabels:
-  - App Name
+  - WorldsInfinity
   cookie: 1
   logging: 1
   status: 1

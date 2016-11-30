@@ -11,6 +11,7 @@ public class Main : MonoBehaviour {
     private FirebaseHelper mFirebaseHelper;
     private VisitedPlaces_Info mVisitedLocation;
     private CommentHelper mCommentHelper;
+    //private FacebookHelper mFacebookHelper;
 
     //For DummyLocation
     private string mLocationInfo;
@@ -26,6 +27,7 @@ public class Main : MonoBehaviour {
     // add them if possible.
     void Start()
     {
+
         dependencyStatus = FirebaseApp.CheckDependencies();
         if (dependencyStatus != DependencyStatus.Available)
         {
@@ -53,6 +55,7 @@ public class Main : MonoBehaviour {
     // Initialize the Firebase database:
     void InitializeFirebase()
     {
+       // mFacebookHelper.AddLogButton();
         mLocationInfo = "Texas Tech University";
         Debug.Log("here");
         mFirebaseHelper = new FirebaseHelper();
