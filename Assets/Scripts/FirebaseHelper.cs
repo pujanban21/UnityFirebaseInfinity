@@ -80,7 +80,7 @@ namespace Assets.Scripts
             return CommentRef().Child(locationName);
         }
 
-        /*Not sure if I need thse nodes below*/
+              /*Not sure if I need thse nodes below*/
         //TimeStamp
         public DatabaseReference TimeStamp()
         {
