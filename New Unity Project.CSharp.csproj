@@ -109,15 +109,12 @@
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
     <Compile Include="Assets\Scripts\CommentHelper.cs" />
-    <Compile Include="Assets\Scripts\CommentManager.cs" />
-    <Compile Include="Assets\Scripts\CommentObject.cs" />
-    <Compile Include="Assets\Scripts\CommentPost.cs" />
     <Compile Include="Assets\Scripts\FirebaseHelper.cs" />
     <Compile Include="Assets\Scripts\FirebaseInitiliazer.cs" />
-    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LocationHelper.cs" />
-    <Compile Include="Assets\Scripts\Main.cs" />
-    <Compile Include="Assets\Scripts\VisitedPlaces_Info.cs" />
+    <Compile Include="Assets\Scripts\CommentManager.cs" />
+    <Compile Include="Assets\Scripts\StringValues.cs" />
+    <Compile Include="Assets\Scripts\VisitedPlacesInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FacebookSDK\link.xml" />

@@ -1761,6 +1761,8 @@ MonoBehaviour:
   input: {fileID: 1964499446}
   postButton: {fileID: 1783173574}
   confirmationText: {fileID: 702225604}
+  comment: 
+  mNotfiy: 0
 --- !u!1 &1783173572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2363,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationText: {fileID: 211141357}
   sortOption: {fileID: 706355051}
+  mCommentPost: {fileID: 0}
+  mLocationInfo: 
+  mLikes: 
+  mComment: 
+  mDate: 
 --- !u!4 &2026406915
 Transform:
   m_ObjectHideFlags: 0

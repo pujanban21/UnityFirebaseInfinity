@@ -9,12 +9,14 @@ namespace Assets.Scripts
     {
         private const string TAG = "CommentHelper";
         private string mComment;
-        private DateTime mTimeStamp;
-        private int mLikes;
+        private string mTimeStamp;
+        private string mLikes;
+        private string mUserName;
 
         public CommentHelper() { }
 
-        public CommentHelper(string comment, DateTime dateTime, int likes) {
+        public CommentHelper(string userName, string comment, string dateTime, string likes) {
+            this.mUserName = userName;
             this.mComment = comment;
             this.mTimeStamp = dateTime;
             this.mLikes = likes;
@@ -24,13 +26,24 @@ namespace Assets.Scripts
         public Dictionary<string, object> CommentRS() {
 
             Dictionary<string, object> commentStruct = new Dictionary<string, object>();
-            commentStruct["comment"] = mComment;
-            commentStruct["TimeStamp"] = mTimeStamp.ToString("dd/MM/yyyy");
-            commentStruct["Likes"] = Likes.ToString();
+            commentStruct[StringValues.USER_NAME] = mUserName;
+            commentStruct[StringValues.COMMENT] = mComment;
+            commentStruct[StringValues.TIME_STAMP] = mTimeStamp;
+            commentStruct[StringValues.LIKES] = mLikes;
 
             return commentStruct;
         }
 
+        //Accessor for username
+        public string UserName {
+            get
+            {
+                return mUserName;
+            }
+            set {
+                mUserName = value;
+            }
+        }
         //Accessor for commment
         public string Comment {
             get {
@@ -42,7 +55,7 @@ namespace Assets.Scripts
         }
 
         //Accessor for TimeStamp
-        public DateTime TimeStamp
+        public string TimeStamp
         {
             get {
                 return mTimeStamp;
@@ -53,7 +66,7 @@ namespace Assets.Scripts
         }
 
         //Accessor for popularity of votes
-        public int Likes {
+        public string Likes {
         get {
                 return mLikes;
             }

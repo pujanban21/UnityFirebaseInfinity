@@ -5,18 +5,18 @@ using System.Text;
 
 namespace Assets.Scripts
 {
-    class VisitedPlaces_Info
+    class VisitedPlacesInfo
     {
-        private const string TAG = "VisitedPlaces_Info";
+        private const string TAG = "VisitedPlacesInfo";
 
         private string latitude;
         private string longitude;
 
-        public VisitedPlaces_Info()
+        public VisitedPlacesInfo()
         {
         }
 
-        public VisitedPlaces_Info(string latitude, string longitude)
+        public VisitedPlacesInfo(string latitude, string longitude)
         {
             this.latitude = latitude;
             this.longitude = longitude;
@@ -45,8 +45,8 @@ namespace Assets.Scripts
         public Dictionary<string, Object> SaveLocation()
         {
             Dictionary<string, Object> locate = new Dictionary<string, object>();
-            locate["latitude"] = latitude;
-            locate["longitude"] = longitude;
+            locate[StringValues.LATITUDE] = latitude;
+            locate[StringValues.LONGTITUDE] = longitude;
 
             return locate;
         }
