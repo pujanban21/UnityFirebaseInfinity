@@ -21,6 +21,8 @@ DEFAULT_INPUT_FILENAME = 'app/google-services.json'
 # Output filename if it isn't set.
 DEFAULT_OUTPUT_FILENAME = 'res/values/googleservices.xml'
 
+# Indicates a web client in the oauth_client list.
+OAUTH_CLIENT_TYPE_WEB = 3
 
 def gen_string(parent, name, text):
   """Generate one <string /> element."""
@@ -88,6 +90,8 @@ def main():
   if project_info:
     gen_string(root, 'firebase_database_url', project_info.get('firebase_url'))
     gen_string(root, 'gcm_defaultSenderId', project_info.get('project_number'))
+    gen_string(root, 'google_storage_bucket',
+               project_info.get('storage_bucket'))
 
   if args.f:
     if not project_info:
@@ -134,9 +138,19 @@ def main():
       gen_string(root, 'google_api_key', client_api_key0.get('current_key'))
       gen_string(root, 'google_crash_reporting_api_key',
                  client_api_key0.get('current_key'))
+
     client_info = selected_client.get('client_info')
     if client_info:
       gen_string(root, 'google_app_id', client_info.get('mobilesdk_app_id'))
+
+    oauth_client_list = selected_client.get('oauth_client')
+    if oauth_client_list:
+      for oauth_client in oauth_client_list:
+        client_type = oauth_client.get('client_type')
+        client_id = oauth_client.get('client_id')
+        if client_type and client_type == OAUTH_CLIENT_TYPE_WEB and client_id:
+          gen_string(root, 'default_web_client_id', client_id)
+
     services = selected_client.get('services')
     if services:
       ads_service = services.get('ads_service')

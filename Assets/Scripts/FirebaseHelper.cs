@@ -15,7 +15,8 @@ namespace Assets.Scripts
 
         private DatabaseReference rootReference;
         private FirebaseApp app;
-        private string locationName;
+        private string locationName = "";
+        private string mUid = "";
 
 
         public FirebaseHelper() { }
@@ -31,7 +32,6 @@ namespace Assets.Scripts
 
         public void DatabaseRef()
         {
-            Debug.Log(TAG);  //For Debugging
             app = FirebaseApp.DefaultInstance;
             app.SetEditorDatabaseUrl(URLRef());
         }
@@ -40,7 +40,6 @@ namespace Assets.Scripts
         public DatabaseReference RootRef()
         {
             rootReference = FirebaseDatabase.DefaultInstance.RootReference;
-            Debug.Log(rootReference.ToString()); //For Debugging
             return rootReference;
 
         }
@@ -50,17 +49,19 @@ namespace Assets.Scripts
         }
 
         //Current User node
-        public DatabaseReference CurrentUserRef()
+        public DatabaseReference UserRef()
         {
-            Debug.Log(RootRef().Child("Users")); //For Debugging
-
-            return AppRootRef().Child("Users");
+           return AppRootRef().Child("Users");
         }
 
         //Current User Visited Places Node
         public DatabaseReference VisitedLocationRef()
         {
-            return CurrentUserRef().Child("VisitedLocation");
+            return UserID().Child("VisitedLocation");
+        }
+
+        public DatabaseReference UserID() {
+            return UserRef().Child(mUid);
         }
 
         //New Location
@@ -96,11 +97,18 @@ namespace Assets.Scripts
 
         //Accessor for the current Location Name
         public string LocationName{ 
-            get{
-            return locationName;
-            } set {
-                locationName = value;
-            }
+            get
+            { return locationName;}
+            set
+            { locationName = value;}
+        }
+
+        //Get the current user ID
+        public string UserToken {
+            get
+            { return mUid; }
+            set
+            { mUid = value;}
         }
     }
 }

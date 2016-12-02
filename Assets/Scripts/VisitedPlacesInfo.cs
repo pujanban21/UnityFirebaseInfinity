@@ -42,7 +42,7 @@ namespace Assets.Scripts
             }
         }
 
-        public Dictionary<string, Object> SaveLocation()
+        public Dictionary<string, Object> LocationCordinates()
         {
             Dictionary<string, Object> locate = new Dictionary<string, object>();
             locate[StringValues.LATITUDE] = latitude;
