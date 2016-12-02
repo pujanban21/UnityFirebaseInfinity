@@ -60,7 +60,6 @@ namespace Assets.Scripts
         //Current User Visited Places Node
         public DatabaseReference VisitedLocationRef()
         {
-            Debug.Log("visitedLocations"); //For Debugging
             return CurrentUserRef().Child("VisitedLocation");
         }
 
