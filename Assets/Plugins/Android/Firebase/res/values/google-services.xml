@@ -2,7 +2,9 @@
 <resources>
   <string name="firebase_database_url" translatable="false">https://worldsinfinity-6f366.firebaseio.com</string>
   <string name="gcm_defaultSenderId" translatable="false">1079450822108</string>
+  <string name="google_storage_bucket" translatable="false">worldsinfinity-6f366.appspot.com</string>
   <string name="google_api_key" translatable="false">AIzaSyC6UQAlF6uKXBUdJi0QQeIahtTYId9Yna8</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC6UQAlF6uKXBUdJi0QQeIahtTYId9Yna8</string>
   <string name="google_app_id" translatable="false">1:1079450822108:android:d24982f8d24b5306</string>
+  <string name="default_web_client_id" translatable="false">1079450822108-sif3as8bqjsek1go5gin6r46os7c2d40.apps.googleusercontent.com</string>
 </resources>

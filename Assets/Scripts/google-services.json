@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1079450822108-aapa1a3vbfkks36ctm1tp786md8hksfm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Snorlaxes.WorldsInfinity",
+            "certificate_hash": "FF9CD9C6566876DA667B548B630BE97CC19EDF4F"
+          }
+        },
+        {
           "client_id": "1079450822108-sif3as8bqjsek1go5gin6r46os7c2d40.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079450822108-sif3as8bqjsek1go5gin6r46os7c2d40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

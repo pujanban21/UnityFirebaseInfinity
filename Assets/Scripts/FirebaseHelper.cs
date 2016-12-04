@@ -61,6 +61,7 @@ namespace Assets.Scripts
         }
 
         public DatabaseReference UserID() {
+            Debug.Log(mUid);
             return UserRef().Child(mUid);
         }
 

@@ -109,6 +109,12 @@
     <Reference Include="Firebase.Auth">
       <HintPath>Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
     </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database.Unity">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Database.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Compat">
       <HintPath>Assets\Firebase\Plugins\Unity.Compat.dll</HintPath>
     </Reference>
@@ -123,12 +129,6 @@
     </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>Assets\PlayServicesResolver\Editor\Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database.Unity">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Database.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Database.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
